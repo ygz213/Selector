@@ -9,7 +9,7 @@ class Selector(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
         self.setWindowTitle('Selector')
-        self.setWindowIcon(QtGui.QIcon('icon.png'))
+        self.setWindowIcon(QtGui.QIcon('icons/icon.png'))
         self.draw_widgets()
 
     def draw_widgets(self):

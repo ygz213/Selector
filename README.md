@@ -1,7 +1,7 @@
 ![latest release](https://img.shields.io/github/v/release/ygz213/Selector?style=flat-square "latest release")
 ![licence](https://img.shields.io/github/license/ygz213/Selector?style=flat-square)
 
-<img src="icon.png" width="256"/>
+![](app/icons/icon.png)
 
 ---
 
