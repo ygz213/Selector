@@ -1,6 +1,7 @@
 #pylint:disable=I1101
 from sys import argv
 from PyQt6 import QtCore, QtGui, QtWidgets
+import item_handler as ih
 
 
 
@@ -22,6 +23,7 @@ class Selector(QtWidgets.QWidget):
         layout.addWidget(self.list_widget, 0, 0, 4, 1)
 
         self.add_button = QtWidgets.QPushButton('Add item...', self)
+        self.add_button.clicked.connect(lambda: ih.add_item(self))
         layout.addWidget(self.add_button, 0, 1)
 
     def show_context_menu(self, position):
