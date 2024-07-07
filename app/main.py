@@ -10,6 +10,7 @@ class Selector(QtWidgets.QWidget):
         super().__init__()
         self.setWindowTitle('Selector')
         self.setWindowIcon(QtGui.QIcon('icons/icon.png'))
+        self.showMaximized()
         self.draw_widgets()
 
     def draw_widgets(self):
@@ -24,7 +25,17 @@ class Selector(QtWidgets.QWidget):
 
         self.add_button = QtWidgets.QPushButton('Add item...', self)
         self.add_button.clicked.connect(lambda: ih.add_item(self))
-        layout.addWidget(self.add_button, 0, 1)
+        layout.addWidget(self.add_button, 0, 2)
+
+        layout.addWidget(QtWidgets.QLabel("Select", self), 1, 1)
+        self.comboBox = QtWidgets.QComboBox(self)
+        self.comboBox.addItems([str(item) for item in [item for item in range(1, self.list_widget.count())]])
+        layout.addWidget(self.comboBox, 1, 2)
+        layout.addWidget(QtWidgets.QLabel("items from list", self), 1, 3)
+
+        self.select_button = QtWidgets.QPushButton('SELECT', self)
+#        self.add_button.clicked.connect(lambda: ih.add_item(self))
+        layout.addWidget(self.select_button, 2, 2)
 
     def show_context_menu(self, position):
         context_menu = QtWidgets.QMenu(self)
