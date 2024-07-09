@@ -13,6 +13,7 @@ class Selector(QtWidgets.QWidget):
         self.showMaximized()
         self.draw_widgets()
 
+
     def draw_widgets(self):
         layout = QtWidgets.QGridLayout(self)
         self.setLayout(layout)
@@ -27,21 +28,21 @@ class Selector(QtWidgets.QWidget):
         self.add_button.clicked.connect(lambda: ih.add_item(self))
         layout.addWidget(self.add_button, 0, 2)
 
-        layout.addWidget(QtWidgets.QLabel("Select", self), 1, 1)
-        self.comboBox = QtWidgets.QComboBox(self)
-        self.comboBox.addItems([str(item) for item in [item for item in range(1, self.list_widget.count())]])
-        layout.addWidget(self.comboBox, 1, 2)
-        layout.addWidget(QtWidgets.QLabel("items from list", self), 1, 3)
+        layout.addWidget(QtWidgets.QLabel('Select', self), 1, 1)
+        self.combo_box = QtWidgets.QComboBox(self)
+        self.combo_box.addItems([str(item) for item in list(range(1, self.list_widget.count()))])
+        layout.addWidget(self.combo_box, 1, 2)
+        layout.addWidget(QtWidgets.QLabel('items from list', self), 1, 3)
 
         self.select_button = QtWidgets.QPushButton('SELECT', self)
-#        self.add_button.clicked.connect(lambda: ih.add_item(self))
         layout.addWidget(self.select_button, 2, 2)
+
 
     def show_context_menu(self, position):
         context_menu = QtWidgets.QMenu(self)
 
-        context_menu.addAction(QtGui.QAction("Edit...", self))
-        context_menu.addAction(QtGui.QAction("Remove...", self))
+        context_menu.addAction(QtGui.QAction('Edit...', self))
+        context_menu.addAction(QtGui.QAction('Remove...', self))
 
         context_menu.exec(self.list_widget.viewport().mapToGlobal(position))
 
