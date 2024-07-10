@@ -35,6 +35,7 @@ class Selector(QtWidgets.QWidget):
         layout.addWidget(QtWidgets.QLabel('items from list', self), 1, 3)
 
         self.select_button = QtWidgets.QPushButton('SELECT', self)
+        self.select_button.clicked.connect(lambda: ih.select_item(self))
         layout.addWidget(self.select_button, 2, 2)
 
 
