@@ -1,4 +1,5 @@
 #pylint:disable=I1101
+from shutil import rmtree
 from sys import argv
 from PyQt6 import QtCore, QtGui, QtWidgets
 import item_handler as ih
@@ -50,6 +51,7 @@ class Selector(QtWidgets.QWidget):
 
 
 application = QtWidgets.QApplication(argv)
+application.aboutToQuit.connect(lambda: rmtree(f'{argv[0][:len(argv[0]) - 7]}__pycache__'))
 window = Selector()
 window.show()
 application.exec()
