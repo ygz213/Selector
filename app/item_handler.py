@@ -1,10 +1,11 @@
+#pylint:disable=I1101
 from random import choice
 from PyQt6 import QtWidgets
 
 
 
 def select_item(self):
-    item_indices = [item for item in list(range(0, self.list_widget.count()))]
+    item_indices = list(list(range(0, self.list_widget.count())))
     selected_items = []
 
     if self.list_widget.count() > 0:
