@@ -3,12 +3,16 @@
 **1-** Move `app/icons/icon.png` to `app/` directory.
 
 
-**2-** Make sure that PyInstaller is installed.
+**2-** Convert `app/icon.png` to `.ico` via the Internet and download the `.ico` file to `app/` directory."
 
 
-**3-** Replace first 15 lines of 'main.py' with the following code
+**3-** Make sure that PyInstaller is installed.
+
+
+**4-** Replace first 15 lines of 'main.py' with the following code
 ```python
 #pylint:disable=I1101
+from shutil import rmtree
 from sys import argv
 from PyQt6 import QtCore, QtGui, QtWidgets
 import item_handler as ih
