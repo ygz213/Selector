@@ -5,7 +5,6 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 import item_handler as ih
 
 
-
 class Selector(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
@@ -43,8 +42,8 @@ class Selector(QtWidgets.QWidget):
     def show_context_menu(self, position):
         context_menu = QtWidgets.QMenu(self)
 
-        context_menu.addAction(QtGui.QAction('Edit...', self))
-        context_menu.addAction(QtGui.QAction('Remove...', self))
+        context_menu.addAction(QtGui.QAction('Edit...', self))    # Selector v4
+        context_menu.addAction(QtGui.QAction('Remove...', self))    # Selector v4
 
         context_menu.exec(self.list_widget.viewport().mapToGlobal(position))
 
