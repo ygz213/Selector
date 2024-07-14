@@ -30,3 +30,11 @@ def add_item(self):
         self.list_widget.addItem(item)
         self.combo_box.clear()
         self.combo_box.addItems([str(item) for item in list(range(1, self.list_widget.count()))])
+
+
+def edit_item(self):
+    item_to_edit = self.list_widget.currentItem()
+
+    new_item, ok = QtWidgets.QInputDialog.getText(self, "Edit item", "New item name:", QtWidgets.QLineEdit.EchoMode.Normal, item_to_edit.text())
+    if new_item and ok:
+        item_to_edit.setText(new_item)

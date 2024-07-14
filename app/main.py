@@ -43,7 +43,10 @@ class Selector(QtWidgets.QWidget):
     def show_context_menu(self, position):
         context_menu = QtWidgets.QMenu(self)
 
-        context_menu.addAction(QtGui.QAction('Edit...', self))    # Selector v4
+        edit_action = QtGui.QAction('Edit...', self)
+        edit_action.triggered.connect(lambda: ih.edit_item(self))
+        context_menu.addAction(edit_action)
+
         context_menu.addAction(QtGui.QAction('Remove...', self))    # Selector v4
 
         context_menu.exec(self.list_widget.viewport().mapToGlobal(position))
