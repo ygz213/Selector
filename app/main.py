@@ -47,7 +47,9 @@ class Selector(QtWidgets.QWidget):
         edit_action.triggered.connect(lambda: ih.edit_item(self))
         context_menu.addAction(edit_action)
 
-        context_menu.addAction(QtGui.QAction('Remove...', self))    # Selector v4
+        delete_action = QtGui.QAction('Remove...', self)
+        delete_action.triggered.connect(lambda: ih.delete_item(self))
+        context_menu.addAction(delete_action)
 
         context_menu.exec(self.list_widget.viewport().mapToGlobal(position))
 

@@ -38,3 +38,11 @@ def edit_item(self):
     new_item, ok = QtWidgets.QInputDialog.getText(self, "Edit item", "New item name:", QtWidgets.QLineEdit.EchoMode.Normal, item_to_edit.text())
     if new_item and ok:
         item_to_edit.setText(new_item)
+
+
+def delete_item(self):
+    item_to_delete = self.list_widget.currentItem()
+    are_you_sure = QtWidgets.QMessageBox.question(self, 'Delete item', f'Are you sure you want to delete "{item_to_delete.text()}"?')
+
+    if are_you_sure == QtWidgets.QMessageBox.StandardButton.Yes:
+        self.list_widget.takeItem(self.list_widget.row(item_to_delete))
