@@ -16,8 +16,7 @@ def select_item(self):
             self.list_widget.item(selected_item).setSelected(True)    # Shows random item in "self.list_widget"
             item_indices.remove(selected_item)    # Deletes random item from "item_indices" so it can't be selected again
 
-        QtWidgets.QMessageBox.information(self, 'INFO', f'''
-                                          <b>Randomly selected item(s)</b>:
+        QtWidgets.QMessageBox.information(self, 'Selected item(s)', f'''
                                           <ul>
                                           {''.join([f'<li>{item}</li>' for item in selected_items])}
                                           </ul>''')    # Lists "selected_items" list elements
