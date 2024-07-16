@@ -45,7 +45,7 @@ def edit_item(self):
 
 def delete_item(self):
     item_to_delete = self.list_widget.currentItem()
-    are_you_sure = QtWidgets.QMessageBox.question(self, 'Delete item', f'Are you sure you want to delete "{item_to_delete.text()}"?')
+    are_you_sure = QtWidgets.QMessageBox.question(self, 'Delete item', f'Are you sure you want to delete "<b>{item_to_delete.text()}</b>"?')
 
     if are_you_sure == QtWidgets.QMessageBox.StandardButton.Yes:
         self.list_widget.takeItem(self.list_widget.row(item_to_delete))
