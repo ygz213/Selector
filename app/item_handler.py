@@ -8,6 +8,8 @@ def select_item(self):
     item_indices = list(list(range(0, self.list_widget.count())))
     selected_items = []
 
+    self.list_widget.clearSelection()
+
     if self.list_widget.count() > 0:
         self.list_widget.setSelectionMode(QtWidgets.QListWidget.SelectionMode.MultiSelection)
         for item in range(int(self.combo_box.currentText())):    # With this for loop, the program selects as many random items as user wants
@@ -20,7 +22,6 @@ def select_item(self):
                                           <ul>
                                           {''.join([f'<li>{item}</li>' for item in selected_items])}
                                           </ul>''')    # Lists 'selected_items' list elements
-        self.list_widget.setSelectionMode(QtWidgets.QListWidget.SelectionMode.SingleSelection)
 
 
 def add_item(self):
