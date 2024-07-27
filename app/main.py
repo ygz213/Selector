@@ -3,6 +3,7 @@ from shutil import rmtree
 from sys import argv
 from PyQt6 import QtCore, QtGui, QtWidgets
 import item_handler as ih
+import list_handler as lh
 
 
 
@@ -27,7 +28,7 @@ class Selector(QtWidgets.QWidget):
 
         self.save_list_button = QtWidgets.QPushButton('Save list...', self)
         self.save_list_button.setFixedHeight(35)
-        self.save_list_button.clicked.connect(lambda: None)    # soon
+        self.save_list_button.clicked.connect(lambda: lh.save_list(self))
         layout.addWidget(self.save_list_button, 1, 0)
 
         self.load_list_button = QtWidgets.QPushButton('Load list...', self)
