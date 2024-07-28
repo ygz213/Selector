@@ -33,7 +33,7 @@ class Selector(QtWidgets.QWidget):
 
         self.load_list_button = QtWidgets.QPushButton('Load list...', self)
         self.load_list_button.setFixedHeight(35)
-        self.load_list_button.clicked.connect(lambda: None)    # soon
+        self.load_list_button.clicked.connect(lambda: lh.load_list(self))
         layout.addWidget(self.load_list_button, 2, 0)
 
         self.add_button = QtWidgets.QPushButton('Add item...', self)
