@@ -51,3 +51,5 @@ def delete_item(self):
 
     if are_you_sure == QtWidgets.QMessageBox.StandardButton.Yes:
         self.list_widget.takeItem(self.list_widget.row(item_to_delete))
+        self.combo_box.clear()
+        self.combo_box.addItems([str(item) for item in list(range(1, self.list_widget.count()))])

@@ -21,3 +21,5 @@ def load_list(self):
     self.list_widget.clear()
     for item in list_file.read().splitlines():
         self.list_widget.addItem(item)
+        self.combo_box.clear()
+        self.combo_box.addItems([str(item) for item in list(range(1, self.list_widget.count()))])
