@@ -4,6 +4,7 @@ from sys import argv
 from PyQt6 import QtCore, QtGui, QtWidgets
 import item_handler as ih
 import list_handler as lh
+import os
 
 
 
@@ -11,7 +12,7 @@ class Selector(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
         self.setWindowTitle('Selector')
-        self.setWindowIcon(QtGui.QIcon(f'{argv[0].rsplit('/', 1)[0]}/icons/icon.png'))
+        self.setWindowIcon(QtGui.QIcon(f'{os.path.join(os.path.dirname(argv[0]))}/icons/icon.png'))
         self.showMaximized()
         self.draw_widgets()
 
@@ -68,7 +69,7 @@ class Selector(QtWidgets.QWidget):
 
 
 application = QtWidgets.QApplication(argv)
-application.aboutToQuit.connect(lambda: rmtree(f'{argv[0].rsplit('/', 1)[0]}/__pycache__'))
+application.aboutToQuit.connect(lambda: rmtree(f'{os.path.join(os.path.dirname(argv[0]))}/__pycache__'))
 window = Selector()
 window.show()
 application.exec()
