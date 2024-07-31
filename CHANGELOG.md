@@ -1,3 +1,11 @@
+# v4.1
+
+- Fixed cache deletion issue ([#5](https://github.com/ygz213/Selector/issues/5))
+- Added ability to save list
+- Added ability to load list
+- Minor UI changes
+- Under-the-hood changes
+
 # v4
 
 - Added ability to edit item

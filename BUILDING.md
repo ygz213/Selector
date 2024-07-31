@@ -16,6 +16,7 @@ from shutil import rmtree
 from sys import argv
 from PyQt6 import QtCore, QtGui, QtWidgets
 import item_handler as ih
+import list_handler as lh
 import sys
 import os
 if not hasattr(sys, "frozen"):
