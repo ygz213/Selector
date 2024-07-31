@@ -16,7 +16,11 @@ def save_list(window):
 
 def load_list(window):
     list_fname = QtWidgets.QFileDialog.getOpenFileName(window, 'Load list', '', 'Selector File (*.selector)')
-    list_file = open(list_fname[0])
+    try:
+        list_file = open(list_fname[0])
+    except FileNotFoundError:
+        QtWidgets.QMessageBox.critical(window, 'ERROR', 'No such file.')
+        return
 
     window.list_widget.clear()
     for item in list_file.read().splitlines():
