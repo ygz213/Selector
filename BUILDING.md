@@ -9,7 +9,7 @@
 **3-** Make sure that PyInstaller is installed.
 
 
-**4-** Replace first 15 lines of 'main.py' with the following code
+**4-** Replace first 17 lines of 'main.py' with the following code
 ```python
 #pylint:disable=I1101
 from shutil import rmtree
