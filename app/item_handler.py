@@ -1,6 +1,6 @@
 #pylint:disable=I1101
 from random import choice
-from PyQt6 import QtWidgets
+from PyQt6 import QtCore, QtWidgets
 
 
 
@@ -46,10 +46,16 @@ def edit_item(window):
 
 
 def delete_item(window):
-    item_to_delete = window.list_widget.currentItem()
-    are_you_sure = QtWidgets.QMessageBox.question(window, 'Delete item', f'Are you sure you want to delete "<b>{item_to_delete.text()}</b>"?')
+    item_list_to_delete = [item.text() for item in window.list_widget.selectedItems()]
+
+    are_you_sure = QtWidgets.QMessageBox.question(window, 'Delete item(s)', f'''Are you sure you want to delete the following item(s)?<br>
+                                                  <ul>
+                                                  {''.join([f'<li>{item}</li>' for item in item_list_to_delete])}
+                                                  </ul>''')
 
     if are_you_sure == QtWidgets.QMessageBox.StandardButton.Yes:
-        window.list_widget.takeItem(window.list_widget.row(item_to_delete))
+        for item in item_list_to_delete:
+            window.list_widget.takeItem(window.list_widget.row(window.list_widget.findItems(item, QtCore.Qt.MatchFlag.MatchExactly)[0]))
+
         window.combo_box.clear()
         window.combo_box.addItems([str(item) for item in list(range(1, window.list_widget.count()))])

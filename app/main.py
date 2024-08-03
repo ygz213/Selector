@@ -23,6 +23,7 @@ class Selector(QtWidgets.QWidget):
 
         self.list_widget = QtWidgets.QListWidget(self)
         self.list_widget.addItems(['Item 1', 'Item 2', 'Item 3'])
+        self.list_widget.setSelectionMode(QtWidgets.QListWidget.SelectionMode.MultiSelection)
         self.list_widget.setContextMenuPolicy(QtCore.Qt.ContextMenuPolicy.CustomContextMenu)
         self.list_widget.customContextMenuRequested.connect(self.show_context_menu)
         layout.addWidget(self.list_widget, 0, 0)
@@ -54,15 +55,21 @@ class Selector(QtWidgets.QWidget):
 
 
     def show_context_menu(self, position):
+        item_list = self.list_widget.selectedItems()
         context_menu = QtWidgets.QMenu(self)
 
-        edit_action = QtGui.QAction('Edit...', self)
-        edit_action.triggered.connect(lambda: ih.edit_item(self))
-        context_menu.addAction(edit_action)
+        if len(item_list) == 1:
+            edit_action = QtGui.QAction('Edit...', self)
+            edit_action.triggered.connect(lambda: ih.edit_item(self))
+            context_menu.addAction(edit_action)
 
-        delete_action = QtGui.QAction('Remove...', self)
-        delete_action.triggered.connect(lambda: ih.delete_item(self))
-        context_menu.addAction(delete_action)
+            delete_action = QtGui.QAction('Remove...', self)
+            delete_action.triggered.connect(lambda: ih.delete_item(self))
+            context_menu.addAction(delete_action)
+        else:
+            delete_action = QtGui.QAction('Remove...', self)
+            delete_action.triggered.connect(lambda: ih.delete_item(self))
+            context_menu.addAction(delete_action)
 
         context_menu.exec(self.list_widget.viewport().mapToGlobal(position))
 
