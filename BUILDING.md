@@ -12,24 +12,24 @@
 **4-** Replace first 17 lines of 'main.py' with the following code
 ```python
 #pylint:disable=I1101
+from os import path
 from shutil import rmtree
 from sys import argv
 from PyQt6 import QtCore, QtGui, QtWidgets
 import item_handler as ih
 import list_handler as lh
 import sys
-import os
 if not hasattr(sys, "frozen"):
-    datafile = os.path.join(os.path.dirname(__file__), "icon.png")
+    datafile = path.join(path.dirname(__file__), "icon.png")
 else:
-    datafile = os.path.join(sys.prefix, "icon.png")
+    datafile = path.join(sys.prefix, "icon.png")
 def resource_path(relative_path):    
     try:       
         base_path = sys._MEIPASS
     except Exception:
-        base_path = os.path.abspath(".")
+        base_path = path.abspath(".")
 
-    return os.path.join(base_path, relative_path)
+    return path.join(base_path, relative_path)
 
 
 
