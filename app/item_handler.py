@@ -48,7 +48,8 @@ def edit_item(window):
 def delete_item(window):
     item_list_to_delete = [item.text() for item in window.list_widget.selectedItems()]
 
-    are_you_sure = QtWidgets.QMessageBox.question(window, 'Delete item(s)', f'''Are you sure you want to delete the following item(s)?<br>
+    are_you_sure = QtWidgets.QMessageBox.question(window, 'Delete item(s)', f'''
+                                                  Are you sure you want to delete the following item(s)?<br>
                                                   <ul>
                                                   {''.join([f'<li>{item}</li>' for item in item_list_to_delete])}
                                                   </ul>''')
