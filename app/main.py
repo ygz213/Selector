@@ -66,7 +66,7 @@ class Selector(QtWidgets.QWidget):
             delete_action = QtGui.QAction('Remove...', self)
             delete_action.triggered.connect(lambda: ih.delete_item(self))
             context_menu.addAction(delete_action)
-        else:
+        if len(item_list) > 1:
             delete_action = QtGui.QAction('Remove...', self)
             delete_action.triggered.connect(lambda: ih.delete_item(self))
             context_menu.addAction(delete_action)
