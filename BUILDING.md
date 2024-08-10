@@ -17,7 +17,7 @@ from shutil import rmtree
 from sys import argv
 from PyQt6 import QtCore, QtGui, QtWidgets
 import item_handler as ih
-import list_handler as lh
+import file_handler as fh
 import sys
 if not hasattr(sys, "frozen"):
     datafile = path.join(path.dirname(__file__), "icon.png")

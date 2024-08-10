@@ -1,3 +1,7 @@
+# v4.3
+
+- Added ability to record selection history
+
 # v4.2
 
 - Added ability to delete multiple items ([#4](https://github.com/ygz213/Selector/issues/4))
