@@ -1,6 +1,13 @@
 #pylint:disable=I1101
+from datetime import datetime
+from os import path
+from sys import argv
 from PyQt6 import QtWidgets
 
+
+def save_history(list_widget, selected_items):
+    with open(f'{path.join(path.dirname(argv[0]))}/history.txt', 'a+', encoding = 'utf-8') as history_file:
+        history_file.write(f'{datetime.now().strftime("%Y/%m/%d %H:%M:%S")} | {selected_items} is/are selected from {[list_widget.item(x).text() for x in range(list_widget.count())]}.\n')
 
 
 def save_list(window):
@@ -11,7 +18,6 @@ def save_list(window):
             list_file.write(f'{item}\n')
 
     QtWidgets.QMessageBox.information(window, 'INFO', 'List has been saved.')
-
 
 
 def load_list(window):

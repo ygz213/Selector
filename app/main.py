@@ -4,7 +4,7 @@ from shutil import rmtree
 from sys import argv
 from PyQt6 import QtCore, QtGui, QtWidgets
 import item_handler as ih
-import list_handler as lh
+import file_handler as fh
 
 
 
@@ -30,12 +30,12 @@ class Selector(QtWidgets.QWidget):
 
         self.save_list_button = QtWidgets.QPushButton('Save list...', self)
         self.save_list_button.setFixedHeight(35)
-        self.save_list_button.clicked.connect(lambda: lh.save_list(self))
+        self.save_list_button.clicked.connect(lambda: fh.save_list(self))
         layout.addWidget(self.save_list_button, 1, 0)
 
         self.load_list_button = QtWidgets.QPushButton('Load list...', self)
         self.load_list_button.setFixedHeight(35)
-        self.load_list_button.clicked.connect(lambda: lh.load_list(self))
+        self.load_list_button.clicked.connect(lambda: fh.load_list(self))
         layout.addWidget(self.load_list_button, 2, 0)
 
         self.add_button = QtWidgets.QPushButton('Add item...', self)

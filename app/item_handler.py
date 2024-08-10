@@ -1,6 +1,7 @@
 #pylint:disable=I1101
 from random import choice
 from PyQt6 import QtCore, QtWidgets
+import file_handler as fh
 
 
 
@@ -18,6 +19,8 @@ def select_item(window):
             window.list_widget.item(selected_item).setSelected(True)    # Shows random item in 'self.list_widget'
             item_indices.remove(selected_item)    # Deletes random item from 'item_indices' so it can't be selected again
         window.list_widget.setSelectionMode(QtWidgets.QListWidget.SelectionMode.SingleSelection)
+
+        fh.save_history(window.list_widget, selected_items)
 
         QtWidgets.QMessageBox.information(window, 'Selected item(s)', f'''
                                           <ul>
