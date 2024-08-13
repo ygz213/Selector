@@ -13,11 +13,12 @@ def save_history(list_widget, selected_items):
 def save_list(window):
     list_fname = QtWidgets.QFileDialog.getSaveFileName(window, 'Save list', '', 'Selector File (*.selector)')
 
-    with open(f'{list_fname[0]}.selector', 'w', encoding = 'utf-8') as list_file:
-        for item in [window.list_widget.item(x).text() for x in range(window.list_widget.count())]:
-            list_file.write(f'{item}\n')
+    if list_fname[0]:
+        with open(f'{list_fname[0]}.selector', 'w', encoding = 'utf-8') as list_file:
+            for item in [window.list_widget.item(x).text() for x in range(window.list_widget.count())]:
+                list_file.write(f'{item}\n')
 
-    QtWidgets.QMessageBox.information(window, 'INFO', 'List has been saved.')
+        QtWidgets.QMessageBox.information(window, 'INFO', 'List has been saved.')
 
 
 def load_list(window):
