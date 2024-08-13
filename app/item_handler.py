@@ -12,13 +12,11 @@ def select_item(window):
     window.list_widget.clearSelection()
 
     if window.list_widget.count() > 0:
-        window.list_widget.setSelectionMode(QtWidgets.QListWidget.SelectionMode.MultiSelection)
         for item in range(int(window.combo_box.currentText())):    # With this for loop, the program selects as many random items as user wants
             selected_item = choice(item_indices)    # Selects random item
             selected_items.append(window.list_widget.item(selected_item).text())    # Adds random item to the 'selected_items' list
             window.list_widget.item(selected_item).setSelected(True)    # Shows random item in 'self.list_widget'
             item_indices.remove(selected_item)    # Deletes random item from 'item_indices' so it can't be selected again
-        window.list_widget.setSelectionMode(QtWidgets.QListWidget.SelectionMode.SingleSelection)
 
         fh.save_history(window.list_widget, selected_items)
 
