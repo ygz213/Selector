@@ -14,7 +14,7 @@ def save_list(window):
     list_fname = QtWidgets.QFileDialog.getSaveFileName(window, 'Save list', '', 'Selector File (*.selector)')
 
     if list_fname[0]:
-        with open(f'{list_fname[0]}.selector', 'w', encoding = 'utf-8') as list_file:
+        with open(f'{list_fname[0]}', 'w', encoding = 'utf-8') as list_file:
             for item in [window.list_widget.item(x).text() for x in range(window.list_widget.count())]:
                 list_file.write(f'{item}\n')
 
