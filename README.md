@@ -28,6 +28,9 @@ You are totally free to send a pull request or open an issue.
 
 - meaicon for [question mark](https://www.flaticon.com/free-icon/question_16750044)
 - Voysla for [circle](https://www.flaticon.com/free-icon/circle_597669)
+- Pixel perfect for [plus](https://www.flaticon.com/free-icon/plus_1828921) and [load icon](https://www.flaticon.com/free-icon/import_724950)
+- Yogi Aprelliyanto for [diskette](https://www.flaticon.com/free-icon/diskette_2874050)
+
 
 ## License
 
