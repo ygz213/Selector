@@ -10,7 +10,8 @@
 Selector helps you to randomly select item(s) from an item list.
 
 ## Requirements
-- Python 3.8 and above
+
+- Python 3.9 and above
 - [PyQt6](https://pypi.org/project/PyQt6/) module
 
 ## Installation
